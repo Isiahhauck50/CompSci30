@@ -1,1 +1,62 @@
+#============================================
+# Isiah Hauck
+# Lists Refresher
+# CompSci30
+#============================================
+from time import sleep
 
+#The Lists
+dev_list = ['Master Sword', 'Fire Flower', 'Pokeball', 'Leviathan Axe']
+items = []
+
+def main():
+    while True:
+        while True:
+            print("""What would you like to do?
+        1: Add an Item  2: Remove an item 3: View List 4: View Developer List  5: Exit""")
+            option = input('>')
+            
+            if option.isnumeric():
+                break
+            else:
+                print("That is not one of the options.")
+                sleep(1)
+                continue
+            
+            
+            
+        if option == ('1'):
+            print('What item would you like to add to your list?')
+            item = input('>')
+            items.append(item)
+        
+        elif option == ('2'):
+            while True:
+                print('What item would you like to remove from your list?')
+                item = input('>')
+                if (item in items):   #This checks if the item is in the list, then it removes it if the item is there
+                    items.remove(item)
+                    print(f"The {item} is now removed.")
+                    sleep(1)
+                    break
+                else:
+                    print('That item is not in your list.')
+                    sleep(1)
+                    continue
+        
+        elif option == ('3'):
+            print(*items, sep = ", ")
+            sleep(5)
+            
+        elif option == ('4'):
+            print(*dev_list, sep = ", ")
+            sleep(5)
+            
+        elif option == ('5'):
+            print('Here is your final list:')
+            print(*items, sep = ", ")
+            sleep(10)
+            print('Goodbye!')
+            exit()
+
+main()
