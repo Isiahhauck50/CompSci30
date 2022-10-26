@@ -1,0 +1,198 @@
+#################################
+#Isiah Hauck
+#Arrays Summative
+#CompSci30
+#################################
+
+from time import sleep
+
+#The Lists/Dictionaries
+math = {}
+ela = {}
+science = {}
+averages = []
+
+def average():
+    aveMath = sum(math.values()) / len(math)
+    print('Your average in Math is:', aveMath,'%')
+    sleep(1)
+    aveEla = sum(ela.values()) / len(ela)
+    print('Your average in English is:', aveEla,'%')
+    sleep(1)
+    aveSci = sum(science.values()) / len(science)
+    print('Your average in science is:', aveSci,'%')
+    sleep(1)
+    ave = (aveMath + aveEla + aveSci) / 3
+    print("Your average in all of the classes is:", ave,'%')
+    sleep(1)
+    
+def markList():
+    print('English Marks:')
+    for key, value in math.items():
+        print(key, ' : ',value,'%')
+    sleep(2)
+    print('Math Marks:')
+    for key, value in ela.items():
+        print(key, ' : ',value,'%')
+    sleep(2)
+    print('Science Marks:')
+    for key, value in science.items():
+        print(key, ' : ',value,'%')
+    sleep(5)
+
+def addMark():
+    while True:
+        while True:
+            print('''What subject would you like to access
+            1: English  2: Math  3: Science''')
+            subject = input('>')
+            if subject.isnumeric():
+                break
+            else:
+                print("That is not one of the options.")
+                sleep(1)
+                continue
+            
+        if subject == ('1'):
+            subject = ela
+        
+        elif subject == ('2'):
+            subject = math
+            
+        elif subject == ('3'):
+            subject = science
+        
+        while True:
+            print('What is the name of the assignment?')
+            assignment = input('>')
+            if assignment not in subject:   #This checks if the item is in the list, then it removes it if the item is there
+                while True:
+                    print('What is the mark? (Please use percent form)')
+                    mark = input('>')
+                    try:
+                        subject[assignment] = float(mark)
+                        print(f'{assignment} is now added with a mark of {mark}%.')
+                        sleep(1)
+                        break
+                    except ValueError:
+                        print("That is not a number.")
+                        sleep(1)
+                        continue
+                    
+                break
+            else:
+                print('That assignment is already in the system.')
+                sleep(1)
+                continue
+        
+        break
+
+def main():
+    while True:
+        while True:
+            print("""What would you like to do?
+        1: Add a mark  2: Change a mark  3: Remove a mark  4: View marks  5: View average  6: Exit""")
+            option = input('>')
+            
+            if option.isnumeric():
+                break
+            else:
+                print("That is not one of the options.")
+                sleep(1)
+                continue
+
+        if option == ('1'):
+            addMark()
+                    
+        elif option == ('2'):
+            while True:
+                while True:
+                    print('''What subject woud you like to access?
+                    1: English  2: Math  3: Science''')
+                    subject = input('>')
+                    if subject.isnumeric():
+                        break
+                    else:
+                        print("That is not one of the options.")
+                        sleep(1)
+                        continue
+                    
+                if subject == ('1'):
+                    subject = ela
+                
+                elif subject == ('2'):
+                    subject = math
+                    
+                elif subject == ('3'):
+                    subject = science
+                    
+                print('What assignment would you like to change the mark of?')
+                assignment = input('>')
+                if assignment in subject:
+                    while True:
+                        print(f'What is the new mark on {assignment}?')
+                        mark = input('>')
+                        try:
+                            subject[assignment] = float(mark)
+                            print(f"The {assignment}'s mark is now changed to {mark}%.")
+                            sleep(1)
+                            break
+                        except ValueError:
+                            print("That is not a number.")
+                            sleep(1)
+                            continue
+                        
+                    break
+                else:
+                    print('That assignment is not in the system. (Please make sure you used the same capitalization.)')
+                    sleep(1)
+                    continue
+        
+        elif option == ('3'):
+            while True:
+                print('''What subject would you like to access?
+                1: English  2: Math  3: Science''')
+                subject = input('>')
+                if subject.isnumeric():
+                    break
+                else:
+                    print("That is not one of the options.")
+                    sleep(1)
+                    continue
+                
+            if subject == ('1'):
+                subject = ela
+            
+            elif subject == ('2'):
+                subject = math
+                
+            elif subject == ('3'):
+                subject = science
+                
+            while True:
+                print('What assignment would you like to remove?')
+                assignment = input('>')
+                if assignment in subject:   #This checks if the item is in the list, then it removes it if the item is there
+                    del subject[assignment]
+                    print(f"The {assignment} and its mark are now removed.")
+                    sleep(1)
+                    break
+                else:
+                    print('That assignment is not in the system. (Please make sure you used the same capitalization.)')
+                    sleep(1)
+                    continue
+        
+        elif option == ('4'):
+            markList()
+                        
+        elif option == ('5'):
+            average()
+            
+        elif option == ('6'):
+            markList()
+            average()
+            print('Goodbye!')
+            sleep(2)
+            exit()
+            
+main()
