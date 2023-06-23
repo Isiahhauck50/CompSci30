@@ -106,3 +106,23 @@ while running:
 
 # Quit the game
 pygame.quit()
+
+
+
+#Difference between OOP and Procedural Coding:
+#OOP: Code is organized around objects that have both data and behavior. Objects represent things from the real world, and we can reuse and modify them easily.
+#Procedural Coding: Code is organized around procedures or functions that operate on data. It follows a step-by-step approach, focusing on how to perform tasks.
+
+#Differences in Procedural Coding:
+#If the Pong game were made using procedural coding, it would have functions for moving paddles, updating the ball, handling collisions, and drawing game elements. Data would be stored in global variables accessible by different functions.
+
+#Benefits of OOP:
+#Modularity and Reusability: OOP helps organize code into reusable and independent pieces, making it easier to understand, maintain, and reuse.
+#Encapsulation: OOP hides internal details of objects and provides a clear interface to work with them, making code easier to maintain and reducing dependencies.
+#Inheritance and Polymorphism: OOP allows classes to inherit properties and behaviors from other classes, promoting code reuse. Polymorphism allows different objects to be treated interchangeably, adding flexibility.
+
+#Drawbacks of OOP:
+#Learning Curve: OOP concepts can be more challenging to learn, especially for those used to procedural coding.
+#Abstraction Overuse: Overusing abstraction in OOP can make code more complex and harder to understand.
+#Performance Overhead: OOP features can introduce some performance overhead compared to procedural code.
+#Increased File and Code Size: OOP can result in larger files and more code, which can take more time to develop and compile.
